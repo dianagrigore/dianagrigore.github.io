@@ -37,6 +37,8 @@ table {
 a,
 table.table a {
   color: var(--global-theme-color);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
 
   &:hover {
     color: var(--global-theme-color);
@@ -130,16 +132,17 @@ blockquote {
 }
 
 .profile.float-right {
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 .profile.float-left {
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 @media (min-width: 576px) {
   .profile {
-    width: 30%;
+    max-width: 270px;
+    width: 34%;
 
     .address {
       p {
@@ -163,14 +166,51 @@ blockquote {
   }
 }
 
+.post {
+  .post-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .post-title {
+    color: var(--global-text-color);
+    font-size: 2.45rem;
+    font-weight: 700;
+    line-height: 1.12;
+    margin-bottom: 0.55rem;
+  }
+
+  .desc {
+    color: var(--global-text-color-light);
+    font-size: 1.03rem;
+    line-height: 1.55;
+    max-width: 42rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .profile.float-right,
+  .profile.float-left {
+    float: none !important;
+    margin: 0 auto 1.5rem;
+    max-width: 280px;
+  }
+
+  .post {
+    .post-title {
+      font-size: 2rem;
+    }
+  }
+}
+
 
 // Navbar customization
 
 .navbar {
-  box-shadow: none;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 32px rgba(95, 39, 57, 0.04);
   border-bottom: 1px solid var(--global-divider-color);
   background-color: var(--global-bg-color);
-  opacity: 0.95;
+  opacity: 0.98;
 }
 
 .navbar .dropdown-menu {
@@ -212,6 +252,8 @@ blockquote {
 
   .navbar-nav .nav-item .nav-link {
     color: var(--global-text-color);
+    font-size: 0.92rem;
+    font-weight: 500;
 
     &:hover {
       color: var(--global-hover-color);
@@ -220,7 +262,7 @@ blockquote {
 
   .navbar-nav .nav-item.active>.nav-link {
     background-color: inherit;
-    font-weight: bolder;
+    font-weight: 700;
     color: var(--global-theme-color);
 
     &:hover {
@@ -305,7 +347,8 @@ blockquote {
   text-align: center;
 
   .contact-icons {
-    font-size: 4rem;
+    font-size: 2.35rem;
+    margin-top: 0.75rem;
 
     a {
       i::before {
@@ -350,9 +393,61 @@ footer.fixed-bottom {
 
 footer.sticky-bottom {
   border-top: 1px solid var(--global-divider-color);
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 32px;
+  padding-bottom: 32px;
   font-size: 0.9rem;
+}
+
+// Teaching
+
+.teaching-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.teaching-item {
+  align-items: start;
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+  display: grid;
+  gap: 1.15rem;
+  grid-template-columns: minmax(7.5rem, 0.3fr) 1fr;
+  padding: 1.1rem 1.25rem;
+
+  h2 {
+    font-size: 1.15rem;
+    margin: 0 0 0.25rem;
+  }
+
+  p {
+    color: var(--global-text-color-light);
+    margin: 0;
+  }
+}
+
+.teaching-meta {
+  color: var(--global-text-color-light);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.teaching-level {
+  color: var(--global-theme-color);
+  display: block;
+}
+
+.teaching-years {
+  display: block;
+  font-weight: 500;
+}
+
+@media (max-width: 575px) {
+  .teaching-item {
+    grid-template-columns: 1fr;
+  }
 }
 
 // CV
@@ -363,6 +458,8 @@ footer.sticky-bottom {
   .card {
     background-color: var(--global-card-bg-color);
     border: 1px solid var(--global-divider-color);
+    border-radius: 8px;
+    box-shadow: 0 14px 34px rgba(95, 39, 57, 0.05);
 
     .list-group-item {
       background-color: inherit;
@@ -543,7 +640,7 @@ footer.sticky-bottom {
 // Publications
 
 .publications {
-  margin-top: 2rem;
+  margin-top: 1.75rem;
 
   h1 {
     color: var(--global-theme-color);
@@ -562,11 +659,11 @@ footer.sticky-bottom {
   }
 
   h2.year {
-    color: var(--global-divider-color);
+    color: var(--global-text-color-light);
     border-top: 1px solid var(--global-divider-color);
     padding-top: 1rem;
     margin-top: 2rem;
-    margin-bottom: -2rem;
+    margin-bottom: -1.25rem;
     text-align: right;
   }
 
@@ -576,7 +673,9 @@ footer.sticky-bottom {
     margin-top: 0;
 
     li {
-      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--global-divider-color);
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
 
       .preview {
         width: 100%;
@@ -591,6 +690,9 @@ footer.sticky-bottom {
         abbr {
           display: inline-block;
           background-color: var(--global-theme-color);
+          border-radius: 4px;
+          font-size: 0.72rem;
+          font-weight: 600;
           padding-left: 1rem;
           padding-right: 1rem;
 
@@ -610,7 +712,8 @@ footer.sticky-bottom {
       }
 
       .title {
-        font-weight: bolder;
+        font-weight: 700;
+        line-height: 1.35;
       }
 
       .author {
@@ -642,17 +745,21 @@ footer.sticky-bottom {
 
       .links {
         a.btn {
-          color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
+          border: 1px solid var(--global-divider-color);
+          border-radius: 6px;
+          color: var(--global-theme-color);
+          font-weight: 500;
+          padding-left: 0.85rem;
+          padding-right: 0.85rem;
           padding-top: 0.25rem;
           padding-bottom: 0.25rem;
           margin-left: 0;
 
           &:hover {
-            color: var(--global-theme-color);
+            background-color: var(--global-theme-color);
             border-color: var(--global-theme-color);
+            color: var(--global-hover-text-color);
+            text-decoration: none;
           }
         }
       }

@@ -6,6 +6,8 @@ body {
   padding-bottom: 70px;
   color: var(--global-text-color);
   background-color: var(--global-bg-color);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
 
   h1, h2, h3, h4, h5, h6 {
     scroll-margin-top: 66px;
@@ -29,6 +31,12 @@ body.sticky-bottom-footer {
 // Profile
 .profile {
   img {
+    aspect-ratio: 2 / 3;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 8px;
+    box-shadow: 0 18px 45px rgba(95, 39, 57, 0.14);
+    object-fit: cover;
+    object-position: center;
     width: 100%;
   }
 }
